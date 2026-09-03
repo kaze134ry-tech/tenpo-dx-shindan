@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>飲食店DX構成診断｜あなたの店に合うPOS・予約・決済の組み合わせがわかる</title>
+<meta name="description" content="店舗数・予算・重視項目を選ぶだけで、飲食店向けPOS・予約・決済サービスの最適な組み合わせを診断。一元管理型・低コスト分離型・高機能型・現状維持の4パターンから比較候補を提示します。">
+<link rel="canonical" href="https://tenpo-dx-shindan.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="飲食店DX構成診断｜あなたの店に合うPOS・予約・決済の組み合わせがわかる">
+<meta property="og:description" content="店舗数・予算・重視項目を選ぶだけで、飲食店向けDXツールの最適な組み合わせを診断します。">
+<meta property="og:url" content="https://tenpo-dx-shindan.com/">
+<meta property="og:site_name" content="飲食店DX構成診断">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "飲食店DX構成診断",
+  "url": "https://tenpo-dx-shindan.com/",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "店舗数・予算・重視項目を選ぶだけで、飲食店向けPOS・予約・決済サービスの最適な組み合わせを診断する無料ツール。",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "飲食店のPOSと予約システムは別々のサービスにすべき？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "店舗規模や予約比率によります。予約が少ない店舗はPOSと決済のみのシンプルな構成、予約が多い店舗は一元管理できるサービスの方が二重入力の手間を防げます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "飲食店DXの年間コストはどれくらいかかる？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "無料アプリ＋決済手数料のみの構成なら年間数万円、多機能POSを含む構成では端末費用込みで年間20万円前後になることもあります。具体的な条件は診断ツールで概算できます。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo">飲食店DX構成診断</a>
+    <a href="articles/index.html" style="color:var(--ink-soft); text-decoration:none; font-size:14px;">記事一覧</a>
+  </div>
+</header>
+
+<main>
+  <div id="lp" class="active">
+    <div class="wrap">
+      <section class="hero">
+        <h1>あなたの店に合う<br>POS・予約・決済の組み合わせが90秒でわかる</h1>
+        <p class="lead">
+          「結局どのサービスがうちに合うの？」に答える診断ツールです。<br>
+          単品のランキングではなく、<strong>店舗の状況に合わせた「DX構成」</strong>を提示します。
+        </p>
+        <button class="btn" id="start-diagnosis-btn">無料で診断をはじめる</button>
+      </section>
+
+      <section class="policy">
+        <h2>この診断の比較ポリシー</h2>
+        <ul>
+          <li>掲載順位を広告報酬で変更することはありません。順位は入力内容から算出したスコアのみで決まります。</li>
+          <li>料金は各社公式サイトの公開情報を基にしており、確認日を明記しています。不明な料金は推測せず「要問い合わせ」と表示します。</li>
+          <li>対応できない条件（規模・予算など）に無理に当てはまるサービスを推薦することはありません。</li>
+          <li>本サイトはアフィリエイト・比較サイトです。紹介するサービスの一部にアフィリエイトリンクを含みます。</li>
+        </ul>
+      </section>
+
+      <div class="disclosure">
+        本サイトはアフィリエイトプログラムにより収益を得ている場合があります。掲載順位は広告料の多寡によって変動しません。
+      </div>
+    </div>
+  </div>
+
+  <div id="diagnosis">
+    <div class="wrap">
+      <div class="progress-bar"><div class="progress-bar-fill" id="progress-fill"></div></div>
+      <div class="question-card" id="question-card"></div>
+    </div>
+  </div>
+
+  <div id="result">
+    <div class="wrap">
+      <h1 style="font-size:22px; margin-bottom:6px;">診断結果</h1>
+      <p style="color:var(--muted); font-size:14px; margin-bottom:28px;">
+        「最適な1つ」ではなく、状況に応じた比較候補として提示しています。
+      </p>
+      <div id="result-content"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="disclaimer">
+  <div class="wrap">
+    <p>
+      本診断は入力内容に基づく比較候補の提示であり、特定のサービスの導入を保証・断定するものではありません。
+      料金・条件は変更される場合があるため、必ず各社公式サイトで最新情報をご確認ください。
+      本サイトの一部リンクはアフィリエイトプログラムを利用しています。
+    </p>
+  </div>
+</footer>
+
+<script src="js/fit-score.js"></script>
+<script src="js/tco.js"></script>
+<script src="js/analytics.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

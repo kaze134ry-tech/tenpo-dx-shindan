@@ -1,0 +1,24 @@
+# Logs
+*.log
+*.log.*
+*.log.*.gz
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# Certs / secrets (万一webroot内に紛れていた場合の保険)
+*.pem
+*.key
+.env
+.env.*
+
+# Cache
+.cache/
+
+# macOS AppleDouble junk files found in webroot
+._*
+
+# Timestamped backup files found in webroot
+*.bak_*
