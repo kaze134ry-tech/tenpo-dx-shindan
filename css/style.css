@@ -219,6 +219,20 @@ article.post .cta-box { background: var(--accent-soft); border-radius: 10px; pad
 .subsidy-program a:hover { text-decoration: underline; }
 .subsidy-disclaimer { font-size: 12px; color: var(--muted); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
 
+/* 自動化代行サービスCTA（結果画面） */
+.automation-cta {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  margin: 24px 0;
+  text-align: center;
+}
+.automation-cta h3 { font-size: 18px; margin: 0 0 10px; color: #fff; }
+.automation-cta p { font-size: 14px; line-height: 1.7; margin: 0 0 20px; color: rgba(255, 255, 255, 0.92); }
+.automation-cta .btn.cta-white { background: #fff; color: var(--accent); }
+.automation-cta .btn.cta-white:hover { opacity: 0.9; }
+
 /* 結果画面: あわせて読みたい記事 */
 .related-articles-result { border-top: 1px solid var(--border); padding-top: 16px; margin-top: 24px; }
 .related-articles-result h3 { font-size: 15px; color: var(--muted); margin: 0 0 10px; }

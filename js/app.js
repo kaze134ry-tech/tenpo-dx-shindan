@@ -323,6 +323,7 @@ function renderResult(diagnosis) {
 
   html += renderContractNote(state.answers.contractLockIn);
   html += renderSubsidyBox(state.answers.prefecture, state.subsidiesData);
+  html += renderAutomationCta(diagnosis);
   html += renderRelatedArticles(diagnosis);
 
   container.innerHTML = html;
@@ -373,6 +374,30 @@ function renderSubsidyBox(prefecture, subsidiesData) {
       </div>
       ${programsHtml}
       <p class="subsidy-disclaimer">補助金は公募期間・要件が変更されることがあります。申請前に必ず公式サイトで最新情報をご確認ください。</p>
+    </div>
+  `;
+}
+
+function renderAutomationCta(diagnosis) {
+  const configKey = diagnosis.recommendCurrentState
+    ? "current_state"
+    : diagnosis.rankedConfigurations[0]?.key || "unknown";
+  const subject = encodeURIComponent("自動化代行サービスについて相談したい");
+  const body = encodeURIComponent(
+    "診断結果を見て、実際の自動化（予約対応・口コミ返信・発注リマインド等）の代行について相談したいです。\n\n店舗名：\n業態：\n相談したい業務：\n"
+  );
+  return `
+    <div class="automation-cta">
+      <h3>診断結果を、実際の自動化まで進めませんか？</h3>
+      <p>
+        予約対応・口コミ返信の下書き・発注忘れ防止のリマインドなど、
+        診断で見えた課題を実際に自動化する代行サービスを提供しています。
+        初期費用10万円〜、月額3万円〜（内容により変動）。
+      </p>
+      <a class="btn cta-white" href="mailto:contact@tenpo-dx-shindan.com?subject=${subject}&body=${body}"
+         onclick="Analytics.automationCtaClick('${configKey}')">
+        自動化代行について無料相談する
+      </a>
     </div>
   `;
 }

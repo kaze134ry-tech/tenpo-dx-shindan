@@ -1,6 +1,6 @@
 /**
  * GA4イベント計測（最小限）
- * 計測対象: 診断開始 / 各質問離脱 / 診断完了 / 結果別表示 / 外部送客クリック
+ * 計測対象: 診断開始 / 各質問離脱 / 診断完了 / 結果別表示 / 外部送客クリック / 自動化代行CTAクリック
  *
  * GA4測定IDは実際の取得後に GA_MEASUREMENT_ID を差し替えること。
  * 未設定の間はコンソールログのみ出力し、エラーにはしない。
@@ -41,6 +41,7 @@ const Analytics = {
   diagnosisComplete: () => trackEvent("diagnosis_complete"),
   resultShown: (configKey) => trackEvent("result_shown", { config_key: configKey }),
   outboundClick: (serviceId, configKey) => trackEvent("outbound_click", { service_id: serviceId, config_key: configKey }),
+  automationCtaClick: (configKey) => trackEvent("automation_cta_click", { config_key: configKey }),
 };
 
 if (typeof module !== "undefined" && module.exports) {
