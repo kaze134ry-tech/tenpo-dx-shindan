@@ -116,7 +116,7 @@
       "hardwareCostNote": "マルチ決済端末（税込）",
       "paymentFeePctMin": 1.98,
       "paymentFeePctMax": 3.24,
-      "paymentFeeNote": "クレジット1.98%〜／電子マネー3.24%／QR2.00%〜。中小事業者向け条件あり",
+      "paymentFeeNote": "クレジット1.98%〜（業種・契約条件・決済ブランドにより異なります。2026年8月30日時点の公式サイトの掲載情報）／電子マネー3.24%／QR2.00%〜。中小事業者向け条件あり",
       "targetStoreSize": "小規模〜中規模",
       "features": ["クレジット・電子マネー・QR決済対応", "スマレジ連携"],
       "priceConfidence": "official",
