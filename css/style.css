@@ -299,3 +299,17 @@ article.post h3 { font-size: 16px; margin: 20px 0 6px; }
   .compare-table tbody th { border-top: 0; background: var(--accent-soft); white-space: normal; }
   .compare-table td::before { content: attr(data-label); display: block; font-size: 11.5px; color: var(--muted); font-weight: 600; margin-bottom: 2px; }
 }
+
+/* 記事冒頭の診断への案内（広告ではないので PR ラベルなし） */
+.intro-cta { margin: -6px 0 22px; padding: 10px 12px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 6px 6px 0; font-size: 14px; line-height: 1.7; }
+.intro-cta a { display: inline-block; margin-left: 4px; color: var(--accent); font-weight: 600; }
+/* トップの記事リンク */
+.featured-articles { margin: 32px 0 8px; }
+.featured-articles h2 { font-size: 18px; margin: 0 0 12px; }
+.featured-articles ul { list-style: none; margin: 0; padding: 0; }
+.featured-articles li { border-top: 1px solid var(--border); }
+.featured-articles li:last-child { border-bottom: 1px solid var(--border); }
+.featured-articles li a { display: block; padding: 12px 2px; color: var(--ink); font-weight: 600; text-decoration: none; font-size: 15px; }
+.featured-articles li a:hover { color: var(--accent); }
+.featured-articles .more { margin: 10px 0 0; font-size: 14px; }
+.featured-articles .more a { color: var(--accent); }

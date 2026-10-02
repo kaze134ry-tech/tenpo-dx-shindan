@@ -427,13 +427,16 @@ function renderRelatedArticles(diagnosis) {
   const map = {
     unified: [
       ["articles/pos-reservation-separate-or-unified.html", "飲食店の予約システム、POSと別々にしていい？一体型との違い"],
+      ["articles/reservation-system-selection-mistakes.html", "飲食店の予約システム選びで失敗しないポイント"],
       ["articles/annual-tco-simulation.html", "飲食店DXの年間コストはいくら？パターン別に試算してみた"],
     ],
     lowCostSeparate: [
       ["articles/payment-fee-comparison.html", "飲食店の決済手数料、サービスでどれくらい違う？"],
+      ["articles/double-entry-prevention.html", "レジと決済、二重入力を防ぐには？よくある悩みと対策"],
       ["articles/annual-tco-simulation.html", "飲食店DXの年間コストはいくら？パターン別に試算してみた"],
     ],
     highFunction: [
+      ["articles/double-entry-prevention.html", "レジと決済、二重入力を防ぐには？よくある悩みと対策"],
       ["articles/shift-management-dx.html", "飲食店のシフト管理、DXツールでどこまで楽になる？"],
       ["articles/annual-tco-simulation.html", "飲食店DXの年間コストはいくら？パターン別に試算してみた"],
     ],
