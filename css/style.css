@@ -262,3 +262,22 @@ article.post .cta-box { background: var(--accent-soft); border-radius: 10px; pad
 .result-pr { font-size: 12.5px; color: var(--ink-soft); background: #F3F4F6; border-radius: 6px; padding: 8px 12px; margin: 0 0 10px; }
 .checked-date { font-size: 12px; color: var(--muted); margin: -12px 0 16px; }
 .post-meta .date-item { white-space: nowrap; }
+
+/* 診断結果のサービスごとのボタン：提携先（A8）とそれ以外で、枠の大きさ・色をそろえる。素材の <a> の中身は変えない */
+.service-cta-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.service-cta a {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.service-cta a:hover { background: var(--accent-soft); }
+.service-cta img, .aff-box img { width: 1px; height: 1px; border: 0; }
+/* 記事内の［PR］の枠 */
+.aff-box { margin: 4px 0 20px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: #FAFAFB; font-size: 14px; line-height: 1.8; }
+.aff-box a { color: var(--accent); font-weight: 600; }

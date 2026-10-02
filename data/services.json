@@ -40,7 +40,8 @@
       "priceConfidence": "official",
       "officialUrl": "https://smaregi.jp/price/",
       "aspUrl": null,
-      "aspPending": true,
+      "aspPending": false,
+      "aspHtml": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4BAI1K+81CR3E+4Z10+60OXE\" rel=\"nofollow\">スマレジの資料請求はこちら</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4BAI1K+81CR3E+4Z10+60OXE\" alt=\"\">",
       "priceCheckedAt": "2026-08-30",
       "notes": "初期費用の明記なし。複数店舗管理や顧客管理が必要な場合は上位プランが必要。"
     },
@@ -122,7 +123,8 @@
       "priceConfidence": "official",
       "officialUrl": "https://smaregi.jp/payment/price.php",
       "aspUrl": null,
-      "aspPending": true,
+      "aspPending": false,
+      "aspHtml": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4BAI1K+8351WQ+4Z10+HXKQQ\" rel=\"nofollow\">PAYGATE詳細はこちら</a>\n<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4BAI1K+8351WQ+4Z10+HXKQQ\" alt=\"\">",
       "priceCheckedAt": "2026-08-30",
       "notes": "初期費用0円。月額利用料3,300円（税込）＋決済手数料。"
     },

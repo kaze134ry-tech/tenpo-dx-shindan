@@ -289,8 +289,7 @@ function renderResult(diagnosis) {
               <span class="service-name">${s.name}</span>
               <span class="service-price-conf">（${priceConfidenceLabel(s.priceConfidence)}／確認日: ${s.priceCheckedAt}）</span>
               <br>
-              <a class="official-link" href="${s.officialUrl}" target="_blank" rel="noopener nofollow sponsored"
-                 onclick="Analytics.outboundClick('${s.id}', '${config.key}')">公式サイトで詳細を見る →</a>
+              ${renderServiceCta(s, config.key)}
             </li>
           `
             )
@@ -375,6 +374,50 @@ function renderSubsidyBox(prefecture, subsidiesData) {
       <p class="subsidy-disclaimer">補助金は公募期間・要件が変更されることがあります。申請前に必ず公式サイトで最新情報をご確認ください。</p>
     </div>
   `;
+}
+
+/**
+ * A8 の広告コード（services.json の aspHtml）を、書き換えずに表示してよいか確かめる。
+ * 条件：<a> 1つと <img> 1つだけ／a の href が https://px.a8.net/ で始まる／img の src が a8.net のドメイン（https）／
+ *       <script> や on… 属性がない。満たさなければ null を返し、呼び出し側でふつうの公式リンクに戻す。
+ * 素材の href・img・文面は変えない。属性は rel に "sponsored" を足し、target・noopener をほかの外部リンクとそろえるだけ。
+ */
+function safeAspHtml(aspHtml) {
+  if (typeof aspHtml !== "string" || !aspHtml.trim()) return null;
+  const tpl = document.createElement("template");
+  tpl.innerHTML = aspHtml.trim();
+  const nodes = [...tpl.content.childNodes].filter((n) => !(n.nodeType === Node.TEXT_NODE && !n.textContent.trim()));
+  if (nodes.length !== 2 || nodes.some((n) => n.nodeType !== Node.ELEMENT_NODE)) return null;
+  const [a, img] = nodes;
+  if (a.tagName !== "A" || img.tagName !== "IMG") return null;
+  if (tpl.content.querySelector("script") || a.children.length !== 0) return null;
+  for (const el of [a, img]) {
+    if ([...el.attributes].some((attr) => attr.name.toLowerCase().startsWith("on"))) return null;
+  }
+  const href = a.getAttribute("href") || "";
+  if (!href.startsWith("https://px.a8.net/")) return null;
+  let src;
+  try {
+    src = new URL(img.getAttribute("src") || "");
+  } catch (e) {
+    return null;
+  }
+  if (src.protocol !== "https:" || !(src.hostname === "a8.net" || src.hostname.endsWith(".a8.net"))) return null;
+  const rel = new Set((a.getAttribute("rel") || "").split(/\s+/).filter(Boolean));
+  ["nofollow", "sponsored", "noopener"].forEach((t) => rel.add(t));
+  a.setAttribute("rel", [...rel].join(" "));
+  a.setAttribute("target", "_blank");
+  return tpl.innerHTML;
+}
+
+/** 診断結果のサービスごとのボタン。提携先（A8 のコードあり）は［PR］付き、ほかは公式サイトへのリンク。枠の見た目は共通。 */
+function renderServiceCta(s, configKey) {
+  const aff = s.aspPending === false ? safeAspHtml(s.aspHtml) : null;
+  const track = `onclick="Analytics.outboundClick('${s.id}', '${configKey}')"`;
+  if (aff) {
+    return `<div class="service-cta-row"><span class="pr-label">PR</span><span class="service-cta" ${track}>${aff}</span></div>`;
+  }
+  return `<div class="service-cta-row"><span class="service-cta"><a href="${s.officialUrl}" target="_blank" rel="noopener nofollow" ${track}>公式サイトで詳細を見る</a></span></div>`;
 }
 
 function renderRelatedArticles(diagnosis) {
